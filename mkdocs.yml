@@ -1,0 +1,4 @@
+theme:
+  name: material
+  palette:
+    primary: indigo
