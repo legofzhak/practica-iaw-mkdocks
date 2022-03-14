@@ -3,8 +3,9 @@ site_name: IAW
 nav:
     - Principal: index.md
     - Acerca de: about.md
+    - Prueba: prueba.md
 
 theme:
   name: material
   palette:
-    primary: green
+    primary: lima
