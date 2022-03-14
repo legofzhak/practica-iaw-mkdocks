@@ -13,7 +13,7 @@
     
     
       
-        <title>Acerca de - IAW</title>
+        <title>Prueba - IAW</title>
       
     
     
@@ -63,7 +63,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#about" class="md-skip">
+        <a href="#practica-12-amazon-machine-image-ami-de-bitnami-para-wordpress" class="md-skip">
           Skip to content
         </a>
       
@@ -96,7 +96,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Acerca de
+              Prueba
             
           </span>
         </div>
@@ -195,6 +195,21 @@
 
   
   
+  
+    <li class="md-nav__item">
+      <a href="../about/" class="md-nav__link">
+        Acerca de
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
     
   
   
@@ -207,24 +222,9 @@
       
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Acerca de
-      </a>
-      
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../prueba/" class="md-nav__link">
         Prueba
       </a>
+      
     </li>
   
 
@@ -261,7 +261,135 @@
                 
 
 
-<h1 id="about">About</h1>
+<h1 id="practica-12-amazon-machine-image-ami-de-bitnami-para-wordpress">Práctica 12: Amazon Machine Image (AMI) de Bitnami para WordPress</h1>
+<p>AMI: <a href="https://bitnami.com/redirect/to/1995520/wordpress-5.9.2-3-amidebian-x64-hvm-ebs-nami?region=us-east-1">ami-04368838d2c170804</a> Es la ultima versión de la Community AMI de Bitnami con la ultima versión de WordPress. Estraida de la <a href="https://bitnami.com/stack/wordpress/cloud/aws/amis">lista de todas las AMIS disponibles</a> la página oficial de Bitnami.</p>
+<ol>
+<li>
+<p>Se crea como una máquina normal de Amazon. Seguimos los pasos y en Grupos de seguridad agregamos los siguientes:</p>
+<ul>
+<li>SSH (TCP)</li>
+<li>HTTP (TCP)</li>
+<li>HTTPS (TCP)</li>
+</ul>
+<p><img alt="Grupos de seguridad" src="../img/1.png" /></p>
+</li>
+<li>
+<p>Para conectar a la instancia debemos tener en cuenta de que el usuario es <strong>'bitnami'</strong>. Por lo que en el ssh hay que poner <strong>'bitnami'</strong> en vez de <strong>'admin'</strong>, por ejemplo: <em><code>ssh -i "iaw-zaka.pem" bitnami@ec2-54-81-78-107.compute-1.amazonaws.com</code></em>.</p>
+<p><img alt="ssh" src="../img/2.png" /></p>
+</li>
+<li>
+<p>Una vez estamos dentro debemos buscar el fichero de las credenciales y le hacemos un cat. </p>
+<p><strong>Nota</strong>: Suele tardar hasta que se verifique la imagen.</p>
+<p><img alt="credenciales" src="../img/3.png" /></p>
+</li>
+<li>
+<p>Entramos en el directorio stack/bncert para configurar HTTPS con la utilidad bncert. Ejecutamos en mi caso el bncert-0.7.3-linux-x64.run y seguimos los pasos para configurar nuestro sitio como HTTPS.</p>
+<pre><code>bitnami@ip-172-31-21-182:~/stack/bncert$ sudo ./bncert-0.7.3-linux-x64.run
+----------------------------------------------------------------------------
+Welcome to the Bitnami HTTPS Configuration tool.
+
+----------------------------------------------------------------------------
+Domains
+
+Please provide a valid space-separated list of domains for which you wish to
+configure your web server.
+
+Domain list []: bi-zelk.duckdns.org
+
+The following domains were not included: www.bi-zelk.duckdns.org. Do you want to add them? [Y/n]: n
+
+Warning: No www domains (e.g. www.example.com) or non-www domains (e.g.
+www.example.com) have been provided, so the following redirections will be
+disabled: non-www to www, www to non-www.
+Press [Enter] to continue:
+----------------------------------------------------------------------------
+Enable/disable redirections
+
+Please select the redirections you wish to enable or disable on your Bitnami
+installation.
+
+Enable HTTP to HTTPS redirection [Y/n]: y
+
+----------------------------------------------------------------------------
+Changes to perform
+
+The following changes will be performed to your Bitnami installation:
+
+1. Stop web server
+2. Configure web server to use a free Let's Encrypt certificate for the domains:
+bi-zelk.duckdns.org
+3. Configure a cron job to automatically renew the certificate each month
+4. Configure web server name to: bi-zelk.duckdns.org
+5. Enable HTTP to HTTPS redirection (example: redirect
+http://bi-zelk.duckdns.org to https://bi-zelk.duckdns.org)
+6. Start web server once all changes have been performed
+
+Do you agree to these changes? [Y/n]: y
+
+----------------------------------------------------------------------------
+Create a free HTTPS certificate with Let's Encrypt
+
+Please provide a valid e-mail address for which to associate your Let's Encrypt
+certificate.
+
+Domain list: bi-zelk.duckdns.org
+
+Server name: bi-zelk.duckdns.org
+
+E-mail address []: zelk991@g.educaand.es
+
+The Let's Encrypt Subscriber Agreement can be found at:
+
+https://letsencrypt.org/documents/LE-SA-v1.2-November-15-2017.pdf
+
+Do you agree to the Let's Encrypt Subscriber Agreement? [Y/n]: y
+
+----------------------------------------------------------------------------
+Performing changes to your installation
+
+The Bitnami HTTPS Configuration Tool will perform any necessary actions to your
+Bitnami installation. This may take some time, please be patient.
+
+----------------------------------------------------------------------------
+Success
+
+The Bitnami HTTPS Configuration Tool succeeded in modifying your installation.
+
+The configuration report is shown below.
+
+Backup files:
+* /opt/bitnami/apache/conf/httpd.conf.back.202203140244
+* /opt/bitnami/apache/conf/bitnami/bitnami.conf.back.202203140244
+* /opt/bitnami/apache/conf/bitnami/bitnami-ssl.conf.back.202203140244
+* /opt/bitnami/apache/conf/vhosts/wordpress-https-vhost.conf.back.202203140244
+* /opt/bitnami/apache/conf/vhosts/wordpress-vhost.conf.back.202203140244
+
+Find more details in the log file:
+
+/tmp/bncert-202203140244.log
+
+If you find any issues, please check Bitnami Support forums at:
+
+https://community.bitnami.com
+
+Press [Enter] to continue:
+
+bitnami@ip-172-31-21-182:~/stack/bncert$
+</code></pre>
+</li>
+<li>
+<p>Accedemos a la URL https://bi-zelk.duckdns.org. Ahora tenemos listo un sitio WordPress listo para administrar.</p>
+<p><img alt="sitio" src="../img/4.png" /></p>
+<p>Probamos entrar a wp-admin con las credenciales obtenidas.
+<img alt="Admin" src="../img/5.png" /></p>
+</li>
+<li>
+<p>Ahora creamos un tunel SSH de la máquina bitnami a mi máquina para acceder a phpMyAdmin desde localhost:8888/phpmyadmin de mi máquina. </p>
+<p>Usando <code>ssh -N -L 8888:127.0.0.1:80 -i "iaw-zaka.pem" bitnami@ec2-54-81-78-107.compute-1.amazonaws.com</code> creamos el tunel.</p>
+<p>Ahora desde un navegador ponemos 'http://localhost:8888/phpmyadmin/'.
+<img alt="phpmyadmin" src="../img/6.png" /></p>
+</li>
+</ol>
 
               
             </article>
@@ -275,7 +403,7 @@
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href=".." class="md-footer__link md-footer__link--prev" aria-label="Previous: Principal" rel="prev">
+        <a href="../about/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Acerca de" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -284,26 +412,11 @@
               <span class="md-footer__direction">
                 Previous
               </span>
-              Principal
+              Acerca de
             </div>
           </div>
         </a>
       
-      
-        
-        <a href="../prueba/" class="md-footer__link md-footer__link--next" aria-label="Next: Prueba" rel="next">
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Next
-              </span>
-              Prueba
-            </div>
-          </div>
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
-          </div>
-        </a>
       
     </nav>
   
