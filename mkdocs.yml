@@ -9,3 +9,4 @@ theme:
   name: material
   palette:
     primary: pink
+  logo: img/logo.jpg
