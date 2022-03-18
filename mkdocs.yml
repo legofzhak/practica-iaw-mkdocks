@@ -9,5 +9,3 @@ theme:
   name: material
   palette:
     primary: pink
-  font:
-    text: Roboto Mono
