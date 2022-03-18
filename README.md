@@ -1,6 +1,6 @@
 # Práctica: Creación de un sitio web estático con MkDocs y GitHub Pages
 ---
-Sitio: https://legofzhak.github.io/practica-iaw-mkdocks/lego
+Sitio: https://legofzhak.github.io/practica-iaw-mkdocks
 
 ![inicio](./docs/img/iniciomk.PNG)
 
