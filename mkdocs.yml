@@ -8,4 +8,6 @@ nav:
 theme:
   name: material
   palette:
-    primary: lima
+    primary: pink
+  font:
+    text: Roboto Mono

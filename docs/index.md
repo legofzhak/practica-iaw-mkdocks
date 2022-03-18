@@ -1,17 +1,23 @@
-# Welcome to MkDocs
+# Mi primer intento de página en Markdown.
+Me llamo Zakariya y esto es una página de ejemplo y prueba con markdown.
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+Esto es una imagen de prueba.
+![](./img/iniciowp.png)
 
-## Commands
+## Titulo 2
+### Titulo 3
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
+    Comandos:
+    ```bash
+    echo "Hola Mundo!"
 
-## Project layout
+    sudo apt update
 
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+    sudo apt upgrade
+    ```
+
+1. Lista
+- Elemento 1.
+    - Elemento 2.
+
+> la prueba es una prueba y se sigue probando.
