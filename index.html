@@ -24,7 +24,7 @@
         
           
           
-          <meta name="theme-color" content="">
+          <meta name="theme-color" content="#e92063">
         
       
     
@@ -53,7 +53,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="lima" data-md-color-accent="">
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="pink" data-md-color-accent="">
   
     
     
@@ -63,7 +63,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#welcome-to-mkdocs" class="md-skip">
+        <a href="#mi-primer-intento-de-pagina-en-markdown" class="md-skip">
           Skip to content
         </a>
       
@@ -79,8 +79,7 @@
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="." title="IAW" class="md-header__button md-logo" aria-label="IAW" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+  <img src="img/logo.jpg" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -165,8 +164,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="." title="IAW" class="md-nav__button md-logo" aria-label="IAW" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+  <img src="img/logo.jpg" alt="logo">
 
     </a>
     IAW
@@ -216,16 +214,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#commands" class="md-nav__link">
-    Commands
+  <a href="#titulo-2" class="md-nav__link">
+    Titulo 2
+  </a>
+  
+    <nav class="md-nav" aria-label="Titulo 2">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#titulo-3" class="md-nav__link">
+    Titulo 3
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#project-layout" class="md-nav__link">
-    Project layout
-  </a>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -294,16 +298,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#commands" class="md-nav__link">
-    Commands
+  <a href="#titulo-2" class="md-nav__link">
+    Titulo 2
+  </a>
+  
+    <nav class="md-nav" aria-label="Titulo 2">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#titulo-3" class="md-nav__link">
+    Titulo 3
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#project-layout" class="md-nav__link">
-    Project layout
-  </a>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -321,21 +331,31 @@
                 
 
 
-<h1 id="welcome-to-mkdocs">Welcome to MkDocs</h1>
-<p>For full documentation visit <a href="https://www.mkdocs.org">mkdocs.org</a>.</p>
-<h2 id="commands">Commands</h2>
-<ul>
-<li><code>mkdocs new [dir-name]</code> - Create a new project.</li>
-<li><code>mkdocs serve</code> - Start the live-reloading docs server.</li>
-<li><code>mkdocs build</code> - Build the documentation site.</li>
-<li><code>mkdocs -h</code> - Print help message and exit.</li>
-</ul>
-<h2 id="project-layout">Project layout</h2>
-<pre><code>mkdocs.yml    # The configuration file.
-docs/
-    index.md  # The documentation homepage.
-    ...       # Other markdown pages, images and other files.
+<h1 id="mi-primer-intento-de-pagina-en-markdown">Mi primer intento de página en Markdown.</h1>
+<p>Me llamo Zakariya y esto es una página de ejemplo y prueba con markdown.</p>
+<p>Esto es una imagen de prueba.
+<img alt="" src="img/iniciowp.png" /></p>
+<h2 id="titulo-2">Titulo 2</h2>
+<h3 id="titulo-3">Titulo 3</h3>
+<pre><code>Comandos:
+```bash
+echo "Hola Mundo!"
+
+sudo apt update
+
+sudo apt upgrade
+```
 </code></pre>
+<ol>
+<li>Lista</li>
+<li>Elemento 1.<ul>
+<li>Elemento 2.</li>
+</ul>
+</li>
+</ol>
+<blockquote>
+<p>la prueba es una prueba y se sigue probando.</p>
+</blockquote>
 
               
             </article>
