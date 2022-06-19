@@ -6,8 +6,6 @@ window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){va
 </script>
 
 
-
-
 # Mi primer intento de página en Markdown.
 Me llamo Zakariya y esto es una página de ejemplo y prueba con markdown.
 
